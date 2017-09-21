@@ -8,4 +8,4 @@ echo 'Update apt-get'
 apt-get update
 
 echo 'Install graphics drivers'
-apt-get install nvidia-384
+apt-get install -y -q nvidia-384
