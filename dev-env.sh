@@ -37,3 +37,6 @@
 #apt-get install -y -q xdg-utils
 #apt-get install -y -q build-essential
 #npm -g install instant-markdown-d
+
+#echo 'Install Gnome-Terminator'
+#apt-get install -y -q terminator
