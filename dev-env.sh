@@ -6,6 +6,10 @@ apt-add-repository -y ppa:webupd8team/java
 echo 'Add intellij ppa'
 apt-add-repository -y ppa:mmk2410/intellij-idea
 
+echo 'Setup Miktex'
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D6BC243565B2087BC3F897C9277A7293F59E4889
+echo "deb http://miktex.org/download/ubuntu xenial universe" | sudo tee /etc/apt/sources.list.d/miktex.list
+
 echo 'Update apt-get'
 apt-get -y -q update
 
@@ -48,3 +52,8 @@ apt-get install -y -q terminator
 
 echo 'Install Chrome Browser'
 apt-get install -y -q chromium-browser
+
+echo 'Install Miktex'
+apt-get install -y -q miktex
+miktexsetup --shared=yes finish
+initexmf --admin --set-config-value [MPM]AutoInstall=1
