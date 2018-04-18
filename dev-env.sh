@@ -57,3 +57,7 @@ echo 'Install Miktex'
 apt-get install -y -q miktex
 miktexsetup --shared=yes finish
 initexmf --admin --set-config-value [MPM]AutoInstall=1
+
+echo 'Install Tweaks Tool'
+apt-get install -y -q unity-tweak-tool
+apt-get install -y -q gnome-tweak-tool
