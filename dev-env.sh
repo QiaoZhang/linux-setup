@@ -37,8 +37,8 @@ apt-get install -y -q tomcat8-admin
 apt-get install -y -q tomcat8
 
 echo 'Install NodeJS and NPM'
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 apt-get install -y -q nodejs
-apt-get install -y -q npm
 
 echo 'Install Ultimate Vimrc'
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
