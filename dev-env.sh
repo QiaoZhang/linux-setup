@@ -3,7 +3,7 @@ echo 'Set up the dev environment'
 echo 'Add oracle java ppa'
 apt-add-repository -y ppa:webupd8team/java
 
-#jecho 'Add intellij ppa'
+#echo 'Add intellij ppa'
 #apt-add-repository -y ppa:mmk2410/intellij-idea
 
 echo 'Setup Miktex'
@@ -37,7 +37,7 @@ apt-get install -y -q tomcat8-admin
 apt-get install -y -q tomcat8
 
 echo 'Install NodeJS and NPM'
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 apt-get install -y -q nodejs
 
 echo 'Install Ultimate Vimrc'
@@ -53,14 +53,11 @@ git clone git://github.com/suan/vim-instant-markdown.git ~/.vim_runtime/sources_
 echo 'Install Gnome-Terminator'
 apt-get install -y -q terminator
 
-echo 'Install Chrome Browser'
-apt-get install -y -q chromium-browser
-
 echo 'Install Miktex'
 apt-get install -y -q miktex
 miktexsetup --shared=yes finish
 initexmf --admin --set-config-value [MPM]AutoInstall=1
 
-#echo 'Install Tweaks Tool'
-#apt-get install -y -q unity-tweak-tool
-#apt-get install -y -q gnome-tweak-tool
+echo 'Install Tweaks Tool'
+apt-get install -y -q unity-tweak-tool
+apt-get install -y -q gnome-tweak-tool
