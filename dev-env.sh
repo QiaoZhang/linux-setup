@@ -3,8 +3,11 @@ echo 'Set up the dev environment'
 echo 'Add oracle java ppa'
 apt-add-repository -y ppa:webupd8team/java
 
-#echo 'Add intellij ppa'
-#apt-add-repository -y ppa:mmk2410/intellij-idea
+echo 'Add intellij ppa'
+apt-add-repository -y ppa:mmk2410/intellij-idea
+
+echo 'Add Vim 8.0'
+apt-add-repository ppa:jonathonf/vim
 
 echo 'Setup Miktex'
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D6BC243565B2087BC3F897C9277A7293F59E4889
@@ -13,12 +16,15 @@ echo "deb http://miktex.org/download/ubuntu xenial universe" | sudo tee /etc/apt
 echo 'Update apt-get'
 apt-get -y -q update
 
+echo 'Install Vim'
+apt-get install -y -q vim
+
 echo 'Install JDK'
 echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
 apt-get install -y -q oracle-java8-installer
 
-#echo 'Install IntelliJ'
-#apt-get install -y -q intellij-idea-community
+echo 'Install IntelliJ'
+apt-get install -y -q intellij-idea-community
 
 echo 'Install MySQL and MySQL Workbench'
 echo 'mysql-server-5.7 mysql-server/root_password password root' | debconf-set-selections
