@@ -1,59 +1,42 @@
-echo 'Set up the dev environment'
-
-echo 'Add oracle java ppa'
-apt-add-repository -y ppa:webupd8team/java
-
-#echo 'Add intellij ppa'
-#apt-add-repository -y ppa:mmk2410/intellij-idea
-
-echo 'Add Vim 8.0'
-apt-add-repository ppa:jonathonf/vim
-
-echo 'Setup Miktex'
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D6BC243565B2087BC3F897C9277A7293F59E4889
-echo "deb http://miktex.org/download/ubuntu xenial universe" | sudo tee /etc/apt/sources.list.d/miktex.list
-
-echo 'Update apt-get'
+# update & upgrade
 apt-get -y -q update
+apt-get -y -q upgrade
 
-echo 'Install Vim'
-apt-get install -y -q vim
+# install vim
+apt-get install -y -q neovim
 
-echo 'Install JDK'
-echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
-apt-get install -y -q oracle-java9-installer
+# install gcc & make
+apt-get install gcc make
 
-#echo 'Install IntelliJ'
-#apt-get install -y -q intellij-idea-community
+# install Java
+apt-add-repository -y ppa:linuxuprising/java
+apt-get -y -q update
+apt-get install -y -q oracle-java11-installer
 
-echo 'Install MySQL and MySQL Workbench'
+# install pip
+apt-get install -y -q python-pip
+apt-get install -y -q python3-pip
+alias python=python3
+alias pip=pip3
+
+# install mysql
 echo 'mysql-server-5.7 mysql-server/root_password password root' | debconf-set-selections
 echo 'mysql-server-5.7 mysql-server/root_password_again password root' | debconf-set-selections
 apt-get install -y -q  mysql-server-5.7
 
-echo 'Install Pip'
-apt-get install -y -q python-pip
-apt-get install -y -q python3-pip
+# install nodejs
+apt-get install -y -q nodejs npm
 
-echo 'Install Python-Tk'
-apt-get install -y -q python3-tk
-
-echo 'Install NodeJS and NPM'
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-apt-get install -y -q nodejs
-
-echo 'Install Ultimate Vimrc'
+# install ultimate vimrc
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
 
-echo 'Install Gnome-Terminator'
+# install gnome-terminator
 apt-get install -y -q terminator
 
-echo 'Install Miktex'
-apt-get install -y -q miktex
-miktexsetup --shared=yes finish
-initexmf --admin --set-config-value [MPM]AutoInstall=1
+# install texlive-full
+apt-get install -y -q texlive-full
 
-echo 'Install Tweaks Tool'
+# Install Tweaks Tool
 apt-get install -y -q unity-tweak-tool
 apt-get install -y -q gnome-tweak-tool
