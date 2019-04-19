@@ -12,3 +12,9 @@ cp -r /usr/src/cudnn_samples_v7/ $HOME
 cd $HOME/cudnn_samples_v7/mnistCUDNN
 make clean && make
 ./mnistCUDNN
+
+# remember to change the 
+#     #include "driver_types.h"
+# to
+#     #include <driver_types.h>
+# in file /usr/include/cudnn.h
