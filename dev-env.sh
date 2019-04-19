@@ -19,6 +19,9 @@ apt-get install -y -q python3-pip
 alias python=python3
 alias pip=pip3
 
+# install python-venv
+apt-get install -y -q python-venv
+
 # install mysql
 echo 'mysql-server-5.7 mysql-server/root_password password root' | debconf-set-selections
 echo 'mysql-server-5.7 mysql-server/root_password_again password root' | debconf-set-selections
