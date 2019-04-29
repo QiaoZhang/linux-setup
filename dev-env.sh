@@ -6,7 +6,7 @@ apt-get -y -q upgrade
 apt-get install -y -q neovim
 
 # install gcc & make
-apt-get install gcc make
+apt-get install -y -q gcc make
 
 # install Java
 apt-add-repository -y ppa:linuxuprising/java
@@ -21,6 +21,7 @@ alias pip=pip3
 
 # install python-venv
 apt-get install -y -q python-venv
+apt-get install -y -q python3-venv
 
 # install mysql
 echo 'mysql-server-5.7 mysql-server/root_password password root' | debconf-set-selections
