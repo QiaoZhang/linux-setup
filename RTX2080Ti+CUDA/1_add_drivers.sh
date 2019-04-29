@@ -1,5 +1,4 @@
 # preparation
-apt-get install -y -q gcc make neovim
 apt-get update
 apt-get upgrade
 
